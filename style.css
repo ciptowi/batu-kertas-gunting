@@ -26,6 +26,9 @@ table {
   text-align: center;}
   tr {
     height: 120px;}
+  th, td {
+    width: 33%;
+  }
 
 .item {
   width: 100px;
@@ -44,7 +47,7 @@ table {
   font-size: 40px;
   font-weight: 800;
 }
-#result {
+.result {
   font-size: 50px;
   font-weight: 900;
   color: blue;
