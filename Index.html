@@ -4,66 +4,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="canvas">
         <div class="header">
-          <div class="logo"><img src="assets/logo.png" alt="logo" width="40" height="40"></div>
+          <div id="logo"><img src="assets/logo.png" alt="logo" width="40" height="40"></div>
           <div class="title">ROCK PAPER SCISSORS</div>
-          <input type="button" class="signup" value="SIGN UP">
-          <input type="button" class="login" value="LOGIN">
+          <input type="button" id="signup" value="SIGN UP">
+          <input type="button" di="login" value="LOGIN">
         </div>
 
         <table>
           <tr>
             <th>
-              <div class="player">Player</div>
+              <div id="player">Player</div>
             </th>
             <th>
-              <span class="pScore">0</span>
+              <span id="p-score">0</span>
               <span class="vs">:</span>
-              <span class="cScore">0</span>
+              <span id="c-score">0</span>
             </th>
             <th>
-              <div class="com">COM</div>
+              <div class="computer">COM</div>
             </th>
           </tr>
           <tr>
             <td>
-              <input type="image" class="item batu" src="assets/batu.png" alt="batu" width="80" height="80">
+              <span id="batu">
+                <img src="assets/batu.png" alt="batu" id="img-batu">
+              </span>
             </td>
             <td></td>
             <td>
-              <input type="image" class="cBatu" src="assets/batu.png" alt="batu" width="80" height="80">
+              <div class="com">
+                <img src="assets/batu.png" alt="batu" class="img-com">
+              </div>
             </td>
           </tr>
           <tr>
             <td>
-              <input type="image" class="item kertas" src="assets/kertas.png" alt="kertas" width="80" height="80">
+              <span id="kertas">
+                <img src="assets/kertas.png" alt="kertas" id="img-kertas">
+              </span>
             </td>
             <td>
-              <div class="result">VS</div>
+              <div id="result">VS</div>
             </td>
             <td>
-              <input type="image" class="cKertas" src="assets/kertas.png" alt="kertas" width="80" height="80">
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <input type="image" class="item gunting" src="assets/gunting.png" alt="gunting" width="80" height="80">
-            </td>
-            <td></td>
-            <td>
-              <input type="image" class="cGunting" src="assets/gunting.png" alt="gunting" width="80" height="80">
+              <div class="com">
+                <img src="assets/kertas.png" alt="kertas" class="img-com">
+              </div>
             </td>
           </tr>
           <tr>
+            <td>
+              <span id="gunting">
+                <img src="assets/gunting.png" alt="gunting" id="img-gunting">
+              </span>
+            </td>
             <td></td>
             <td>
-              <span><img src="assets/refresh.png" alt="refresh" class="refresh" width="40" height="40"></span>
-              <span><img src="assets/save.png" alt="save" class="save" width="40" height="40"></span>
+              <div class="com">
+                <img src="assets/gunting.png" alt="gunting" class="img-com">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <div id="refresh">
+                <img src="assets/refresh.png" href="#" alt="refresh"width="40" height="40">
+              </div>
+              <div id="save">
+                <img src="assets/save.png" alt="save" width="40" height="40">
+              </div>
             </td>
             <td></td>
           </tr>

@@ -1,31 +1,38 @@
+@font-face {
+  font-family: LeagueGothic;
+  src: url(assets/LeagueGothic-Regular.otf);
+}
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: LeagueGothic;
   background-color: black;
   margin: 0;
   padding: 0;
 }
-@media screen and (min-width: 860px) {
+@media (min-width: 860px){
   .canvas {
-    margin: 0 100px;
-}}
+    margin: 0 150px;
+  }}
 
 .canvas {
   background-color: #9C835F;
   margin-top: 0;
 }
 
-.logo, .title{
+#logo, .title{
   display: inline-block;
   margin-left: 20px;
-  font-weight: 800;
+  font-size: 30px;
+  font-weight: 700;
 }
-.signup, .login {
+#signup, #login {
   display: inline-block;
   font-weight: 700;
   margin: 10px;
+  cursor: pointer;
 }
-.player, .com, .pScore, .cScore, .vs {
-  font-size: 40px;
+#player, #p-score, #c-score, .computer, .vs {
+  font-size: 50px;
   font-weight: 800;
 }
 
@@ -42,23 +49,38 @@ table {
     width: 33%;
   }
 
-.batu, .gunting, .kertas, .cBatu, .cGunting, .cKertas {
+#batu, #kertas, #gunting, .com {
   width: 100px;
   border-radius: 25px;
   display: inline-block;
-  padding: 10px 0;
+  height: 90px;
+  padding-top: 10px;
 }
-.item:hover {
+  #img-batu, #img-kertas, #img-gunting, .img-com {
+    width: 60px;
+    height: 60px;
+  }
+
+
+#batu:hover, #kertas:hover, #gunting:hover {
   background-color: rgba(255,255,255,.5);
+  cursor: pointer;
+}
+#img-batu:hover, #img-kertas:hover, #img-gunting:hover {
+  width: 80px;
+  height: 80px;
 }
 
-.result {
-  font-size: 50px;
-  font-weight: 900;
+#result {
+  font-size: 70px;
+  font-weight: 800;
   color: blue;
   border-radius: 20px;
+  height: 80px;
 }
 
-.refresh, .save {
+#refresh, #save {
   margin: 0 20px;
+  cursor: pointer;
+  display: inline-block;
 }

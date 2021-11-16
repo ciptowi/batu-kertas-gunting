@@ -1,21 +1,26 @@
-// const key = ['p-batu','p-gunting','p-kertas'];
-const pilBatu = document.querySelector('.batu');
-const pilKertas = document.querySelector('.kertas');
-const pilGunting = document.querySelector('.gunting');
-const result = document.querySelector('.result');
+const batu = document.querySelector("#batu");
+const kertas = document.querySelector("#kertas");
+const gunting = document.querySelector("#gunting");
+const result = document.getElementById("result");
+const pScore = document.getElementById("p-score");
+const cScore = document.getElementById("c-score");
+let computer = document.getElementsByClassName("com");
+let scoreP = 0;
+let scoreC = 0;
 
 function game(player, com){
   if(player === com){
-    // result.getElementsByClassName('result')[0].innrHTML = 'DRAW';
-    console.log(player +" vs "+ com +" : draw");
+    result.innerHTML = "DRAW";
   }
   else if(player.length - com.length === -3 || player.length - com.length === 2 || player.length - com.length === 1){
-    // result.getElementsByClassName('result')[0].innrHTML = 'MENANG!';
-    console.log(player +" vs "+ com +" : "+ player + " menang");
+    result.innerHTML = "YOU WIN";
+    scoreP++;
+    pScore.innerHTML = scoreP;
   }
   else{
-    // result.getElementsByClassName('result')[0].innrHTML = 'KALAH!';
-    console.log(player +" vs "+ com +" : "+ player + " kalah");
+    result.innerHTML = "YOU LOST";
+    scoreC++;
+    cScore.innerHTML = scoreC;
   }
 };
 
@@ -26,17 +31,22 @@ function choiceCom(){
   return "gunting";
 };
 
-pilBatu.addEventListener('click', function(){
-  const p = 'batu';
-  const c = choiceCom();
-  // let getResult = game(p, c)
-  pilBatu.style.backgroundColor = 'rgba(255,255,255,.5)';
-  console.log('player :'+ p);
-  console.log('computer :'+ c);
-});
-pilKertas.addEventListener('click', function(){
-  pilKertas.style.backgroundColor = 'rgba(255,255,255,.5)';
-});
-pilGunting.addEventListener('click', function(){
-  pilGunting.style.backgroundColor = 'rgba(255,255,255,.5)';
-});
+let boot = choiceCom()
+function guiCom(){
+  if(boot === "batu"){
+    computer[0].style.backgroundColor = "rgba(255,255,255,.5)";
+  }else if(boot === "kertas"){
+    computer[1].style.backgroundColor = "rgba(255,255,255,.5)";
+  }else{
+    computer[2].style.backgroundColor = "rgba(255,255,255,.5)";
+}};
+
+const running = document.querySelectorAll("span");
+running.forEach(function(i){
+  i.addEventListener('click', function(){
+      const x = i.id;
+      game(x, boot);
+      i.style.backgroundColor = 'rgba(255,255,255,.5)';
+      guiCom();
+    });
+  });
