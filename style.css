@@ -42,7 +42,7 @@ table {
     width: 33%;
   }
 
-.batu, .gunting, .kertas, .pBatu, .pGunting, .pKertas {
+.batu, .gunting, .kertas, .cBatu, .cGunting, .cKertas {
   width: 100px;
   border-radius: 25px;
   display: inline-block;
