@@ -47,6 +47,18 @@ running.forEach(function(i){
       const x = i.id;
       game(x, boot);
       i.style.backgroundColor = 'rgba(255,255,255,.5)';
+      clearTimeout(timerId);
       guiCom();
     });
   });
+
+  let timerId = setInterval(function() {
+    computer[0].style.backgroundColor = "rgba(255,255,255,.5)";
+    computer[1].style.backgroundColor = "rgba(255,255,255,.5)";
+    computer[2].style.backgroundColor = "rgba(255,255,255,.5)";
+      setTimeout(function() {
+      computer[0].style.backgroundColor = "rgba(255,255,255,.0)";
+      computer[1].style.backgroundColor = "rgba(255,255,255,.0)";
+      computer[2].style.backgroundColor = "rgba(255,255,255,.0)";
+      }, 500);
+    }, 1000);
