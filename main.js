@@ -44,11 +44,10 @@ function guiCom(){
 const running = document.querySelectorAll("span");
 running.forEach(function(i){
   i.addEventListener('click', function(){
-      const x = i.id;
-      game(x, boot);
-      i.style.backgroundColor = 'rgba(255,255,255,.5)';
       clearTimeout(timerId);
       guiCom();
+      const x = i.id;
+      game(x, boot);
     });
   });
 
