@@ -1,63 +1,107 @@
-const batu = document.querySelector("#batu");
-const kertas = document.querySelector("#kertas");
-const gunting = document.querySelector("#gunting");
+//----- deklarasi variabel yang dibutuhkan assignment DOM
 const result = document.getElementById("result");
 const pScore = document.getElementById("p-score");
 const cScore = document.getElementById("c-score");
-let computer = document.getElementsByClassName("com");
+const computer = document.getElementsByClassName("img-com");
 let scoreP = 0;
 let scoreC = 0;
 
-function game(player, com){
-  if(player === com){
-    result.innerHTML = "DRAW";
-  }
-  else if(player.length - com.length === -3 || player.length - com.length === 2 || player.length - com.length === 1){
-    result.innerHTML = "YOU WIN";
-    scoreP++;
-    pScore.innerHTML = scoreP;
-  }
-  else{
-    result.innerHTML = "YOU LOST";
-    scoreC++;
-    cScore.innerHTML = scoreC;
+//---------- fungsi login
+const login = function login() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  if (username === "" || password === ""){
+    alert("Anda harus login!\nMasukkan username dan password")
+  }else{
+    window.location = "./game.html";
   }
 };
 
-function choiceCom(){
+//----- computer memilih random
+let boot = getCom()
+function getCom(){
   const nilai = Math.random();
   if (nilai <= 0.33) return "batu";
   if (nilai <= 0.67) return "kertas";
   return "gunting";
-};
+}
 
-let boot = choiceCom()
-function guiCom(){
-  if(boot === "batu"){
-    computer[0].style.backgroundColor = "rgba(255,255,255,.5)";
-  }else if(boot === "kertas"){
-    computer[1].style.backgroundColor = "rgba(255,255,255,.5)";
-  }else{
-    computer[2].style.backgroundColor = "rgba(255,255,255,.5)";
-}};
+//---- aturan game dengam menerapkan konsep OOP
+class Game {
+  constructor (name, choice, computer){
+    this.name = name;
+    this.choice = choice;
+    this.computer = computer;
+  }
+  terminal(){
+    console.log(`player pilih : ${this.choice}`);
+    console.log(`computer pilih : ${this.computer}`);
+  }
+  result(){
+    if(`${this.choice.length}` === `${this.computer.length}`) return "DRAW";
+    if(`${this.choice.length}` - `${this.computer.length}` === -3 || `${this.choice.length}` - `${this.computer.length}` === 2 || `${this.choice.length}` - `${this.computer.length}` === 1) return "YOU WIN";
+    else return "YOU LOST";
+  }
+  guiResult(){
+    if(`${this.choice.length}` === `${this.computer.length}`) {
+      result.style.color = "white";
+      result.style.backgroundColor = "#44fa1b";
+    }
+    if(`${this.choice.length}` - `${this.computer.length}` === -3 || `${this.choice.length}` - `${this.computer.length}` === 2 || `${this.choice.length}` - `${this.computer.length}` === 1) {
+      result.style.color = "white";
+      result.style.backgroundColor = "#44fa1b";
+      scoreP++;
+      pScore.innerHTML = scoreP;
+    }
+    if(`${this.choice.length}` - `${this.computer.length}` === 3 || `${this.choice.length}` - `${this.computer.length}` === -2 || `${this.choice.length}` - `${this.computer.length}` === -1) {
+      result.style.color = "white";
+      result.style.backgroundColor = "#44fa1b";
+      scoreC++;
+      cScore.innerHTML = scoreC;
+    }
+  }
+  guiCom(){
+    if(`${this.computer}` === "batu"){
+      computer[0].style.backgroundColor = "#fde9b6";
+    }else if(`${this.computer}` === "kertas"){
+      computer[1].style.backgroundColor = "#fde9b6";
+    }else{
+      computer[2].style.backgroundColor = "#fde9b6";
+    }
+  }
+}
 
-const running = document.querySelectorAll("span");
+//---- animasi pilihan computer
+function timerRun(){
+  let timer0 = setTimeout(function() {
+    computer[0].style.backgroundColor = "#fde9b6";
+      setTimeout(function(){computer[0].style.backgroundColor = "unset";}, 400);
+    }, 300);
+  let timer1 = setTimeout(function() {
+    computer[1].style.backgroundColor = "#fde9b6";
+      setTimeout(function(){computer[1].style.backgroundColor = "unset";}, 600);
+    }, 500);
+  let timer2 = setTimeout(function() {
+    computer[2].style.backgroundColor = "#fde9b6";
+      setTimeout(function(){computer[2].style.backgroundColor = "unset";}, 800);
+    }, 700);
+}
+
+//----- ketika user click jalankan fungsi
+let running = document.querySelectorAll("span img");
 running.forEach(function(i){
   i.addEventListener('click', function(){
-      clearTimeout(timerId);
-      guiCom();
-      const x = i.id;
-      game(x, boot);
+    const x = i.id;
+    const main = new Game (player,x,boot)
+    timerRun()
+    setTimeout(function() {
+      getCom();
+      main.terminal();
+      main.guiCom();
+      main.guiResult();
+      console.log("hasil : " + main.result());
+      result.innerHTML = main.result();
+      // clearTimeout(timerRun());
+      }, 2000);
+      });
     });
-  });
-
-  let timerId = setInterval(function() {
-    computer[0].style.backgroundColor = "rgba(255,255,255,.5)";
-    computer[1].style.backgroundColor = "rgba(255,255,255,.5)";
-    computer[2].style.backgroundColor = "rgba(255,255,255,.5)";
-      setTimeout(function() {
-      computer[0].style.backgroundColor = "rgba(255,255,255,.0)";
-      computer[1].style.backgroundColor = "rgba(255,255,255,.0)";
-      computer[2].style.backgroundColor = "rgba(255,255,255,.0)";
-      }, 500);
-    }, 1000);
