@@ -1,88 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="canvas">
-        <div class="header">
-          <div class="title">
-            <img src="assets/logo.png" alt="logo" width="40" height="40">
-          </div>
-          <p class="title">ROCK PAPER SCISSORS</p>
-        </div>
-
-        <table>
-          <tr>
-            <th>
-              <div id="player">Player</div>
-            </th>
-            <th>
-              <span id="p-score">0</span>
-              <span class="vs">:</span>
-              <span id="c-score">0</span>
-            </th>
-            <th>
-              <div class="computer">COM</div>
-            </th>
-          </tr>
-          <tr>
-            <td>
-              <span id="batu">
-                <img src="assets/batu.png" alt="batu" id="img-batu">
-              </span>
-            </td>
-            <td></td>
-            <td>
-              <div class="com">
-                <img src="assets/batu.png" alt="batu" class="img-com">
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span id="kertas">
-                <img src="assets/kertas.png" alt="kertas" id="img-kertas">
-              </span>
-            </td>
-            <td>
-              <div id="result">VS</div>
-            </td>
-            <td>
-              <div class="com">
-                <img src="assets/kertas.png" alt="kertas" class="img-com">
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span id="gunting">
-                <img src="assets/gunting.png" alt="gunting" id="img-gunting">
-              </span>
-            </td>
-            <td></td>
-            <td>
-              <div class="com">
-                <img src="assets/gunting.png" alt="gunting" class="img-com">
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <div id="refresh">
-                <img src="assets/refresh.png" value="Refrresh Page" onClick="window.location.reload()" alt="refresh"width="40" height="40">
-              </div>
-            </td>
-            <td></td>
-          </tr>
-        </table>
-
-    </div>
-    <script src="main.js"></script>
+  <div class="canvas">
+    <form action="">
+      <p class="title">LOGIN</p>
+      <img src="./assets/user.png" alt="user"><br><br>
+      <span>Username :</span><br>
+      <input type="text" placeholder="username" id="username" required><br><br>
+      <span>Password :</span><br>
+      <input type="password" placeholder="password" id="password" required><br><br>
+      <button type="button" id="tombol" onclick="login()">PLAY</button>
+    </form>
+  </div>
+  
 </body>
+<script src="./main.js"></script>
 </html>
